@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Registro de estudiantes</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/create">Crear Estudiante</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+          
+          <div class="container" style="width: 100%;">
+            <a href="/create" class="btn btn-outline-primary mt-4"><i class='bx bx-plus-medical'></i></a>
+            <table style="width: 100%;  margin-top:15px;" class="table table-dark table-striped">
+                <thead>
+                    <tr class="bg-primary text-white">
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE COMPLETO</th>
+                        <th scope="col">CARRERA</th>
+                        <th scope="col">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% results.forEach((estudiantes)=> { %>
+                    <tr>
+                        <td><%= estudiantes.id %></td>
+                        <td><%= estudiantes.nombre %> <%= estudiantes.apellido %></td>
+                        <td><%= estudiantes.nombre_carrera %></td>
+                        <td>
+                          <a href="/edit/<%= estudiantes.id %>" class="btn btn-info"><font color="white">Editar</font></a>
+                          <a href="/delete/<%= estudiantes.id %>" class="btn btn-danger">Borrar</a>
+                        </td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+            </table>
+          </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    </body>
+</html>
